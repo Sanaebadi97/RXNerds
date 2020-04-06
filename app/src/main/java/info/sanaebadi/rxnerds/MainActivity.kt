@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         val subject: PublishSubject<String> = PublishSubject.create()
         subject.subscribe {
-                Log.i(TAG, "Student First : " + it)
+            //    Log.i(TAG, "Student First : " + it)
 
         }
 
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
         val behaviorSubject: BehaviorSubject<String> = BehaviorSubject.create()
         behaviorSubject.subscribe {
-            //   Log.i(TAG, "Student First : " + it)
+               Log.i(TAG, "Student First : " + it)
 
         }
 
