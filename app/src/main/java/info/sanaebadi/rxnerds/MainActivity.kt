@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observables.ConnectableObservable
+import io.reactivex.rxjava3.subjects.AsyncSubject
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.PublishSubject
 import io.reactivex.rxjava3.subjects.ReplaySubject
@@ -64,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         //***********************************************************************************
 
 
-
         //Hot Observable Publish Subject
 
         val subject: PublishSubject<String> = PublishSubject.create()
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
         val behaviorSubject: BehaviorSubject<String> = BehaviorSubject.create()
         behaviorSubject.subscribe {
-           //    Log.i(TAG, "Student First : " + it)
+            //    Log.i(TAG, "Student First : " + it)
 
         }
 
@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 
         val replaySubject: ReplaySubject<String> = ReplaySubject.create()
         replaySubject.subscribe {
-         //   Log.i(TAG, "Student First : " + it)
+            //   Log.i(TAG, "Student First : " + it)
 
         }
 
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
         replaySubject.subscribe {
-         //   Log.i(TAG, "Student Second : " + it)
+            //   Log.i(TAG, "Student Second : " + it)
 
         }
 
@@ -183,8 +183,48 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
 
-
         //***********************************************************************************
+
+
+        //Hot observable ReplaySubject
+
+        val asyncSubject: AsyncSubject<String> = AsyncSubject.create()
+        asyncSubject.subscribe {
+            Log.i(TAG, "Student First : " + it)
+
+        }
+
+
+        asyncSubject.onNext("A")
+        sleep(1000)
+
+        asyncSubject.onNext("B")
+        sleep(1000)
+
+        asyncSubject.onNext("C")
+        sleep(1000)
+
+        asyncSubject.onNext("D")
+        sleep(1000)
+
+        asyncSubject.subscribe {
+            Log.i(TAG, "Student Second : " + it)
+
+        }
+
+
+
+        asyncSubject.onNext("E")
+        sleep(1000)
+
+        asyncSubject.onNext("F")
+        sleep(1000)
+
+        asyncSubject.onNext("G")
+        sleep(1000)
+
+
+        asyncSubject.onComplete()
     }
 
 
