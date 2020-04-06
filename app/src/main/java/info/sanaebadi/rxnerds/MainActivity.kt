@@ -190,7 +190,7 @@ class MainActivity : AppCompatActivity() {
 
         val asyncSubject: AsyncSubject<String> = AsyncSubject.create()
         asyncSubject.subscribe {
-            Log.i(TAG, "Student First : " + it)
+            //    Log.i(TAG, "Student First : " + it)
 
         }
 
@@ -208,7 +208,7 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
         asyncSubject.subscribe {
-            Log.i(TAG, "Student Second : " + it)
+            //Log.i(TAG, "Student Second : " + it)
 
         }
 
@@ -225,6 +225,13 @@ class MainActivity : AppCompatActivity() {
 
 
         asyncSubject.onComplete()
+
+        //*************************************************************************
+
+
+        //OBSERVER AND operators
+
+
     }
 
 
