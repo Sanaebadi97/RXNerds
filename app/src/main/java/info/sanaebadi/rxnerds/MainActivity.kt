@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.observables.ConnectableObservable
 import io.reactivex.rxjava3.subjects.AsyncSubject
 import io.reactivex.rxjava3.subjects.BehaviorSubject
@@ -231,6 +233,21 @@ class MainActivity : AppCompatActivity() {
 
         //OBSERVER AND operators
 
+
+        val observer = object: Observer<Int> {
+            override fun onNext(t: Int) {
+                // Perform the value of `t`
+            }
+            override fun onComplete() {
+                // Perform something on complete
+            }
+            override fun onSubscribe(d: Disposable) {
+                // Disposable provided
+            }
+            override fun onError(e: Throwable) {
+                // Handling error
+            }
+        }
 
     }
 
