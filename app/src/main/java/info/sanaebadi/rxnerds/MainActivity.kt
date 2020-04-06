@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        //***********************************************************************************
+
+
         val hot: ConnectableObservable<Long> =
             ConnectableObservable.intervalRange(0, 5, 0, 1, TimeUnit.SECONDS).publish()
         hot.connect()
@@ -57,6 +60,9 @@ class MainActivity : AppCompatActivity() {
             // Log.i(TAG, "Student 2 is : " + it)
 
         }
+
+        //***********************************************************************************
+
 
 
         //Hot Observable Publish Subject
@@ -97,6 +103,9 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
 
+        //***********************************************************************************
+
+
         //Hot observable BehaviorSubject
 
         val behaviorSubject: BehaviorSubject<String> = BehaviorSubject.create()
@@ -134,11 +143,13 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
 
+        //***********************************************************************************
+
         //Hot observable ReplaySubject
 
         val replaySubject: ReplaySubject<String> = ReplaySubject.create()
         replaySubject.subscribe {
-            Log.i(TAG, "Student First : " + it)
+         //   Log.i(TAG, "Student First : " + it)
 
         }
 
@@ -156,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         sleep(1000)
 
         replaySubject.subscribe {
-            Log.i(TAG, "Student Second : " + it)
+         //   Log.i(TAG, "Student Second : " + it)
 
         }
 
@@ -171,6 +182,9 @@ class MainActivity : AppCompatActivity() {
         replaySubject.onNext("G")
         sleep(1000)
 
+
+
+        //***********************************************************************************
     }
 
 
